@@ -5,6 +5,8 @@ module RailsSettings
         include ::Mongoid::Document
         include ::RailsSettings::Adapters::Abstract::Settings
 
+        store_in collection: 'settings'
+
         field :var, type: String
         field :value, type: String
 
