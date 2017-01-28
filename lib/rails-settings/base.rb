@@ -1,5 +1,5 @@
 module RailsSettings
-  class Base < Settings
+  class Base < ::RailsSettings::BaseAdapter[:settings]
     def rewrite_cache
       Rails.cache.write(cache_key, value)
     end
