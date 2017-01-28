@@ -22,6 +22,12 @@ module RailsSettings
             vars
           end
 
+          def object(var_name)
+            return nil unless rails_initialized?
+            return nil unless table_exists?
+            thing_scoped.where(var: var_name.to_s).first
+          end
+
           def thing_scoped
             unscoped.where('thing_type is NULL and thing_id is NULL')
           end

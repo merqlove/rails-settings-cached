@@ -5,6 +5,9 @@ module RailsSettings
         include ::Mongoid::Document
         include ::RailsSettings::Adapters::Abstract::Settings
 
+        field :var, type: String
+        field :value, type: String
+
         class << self
           # retrieve all settings as a hash (optionally starting with a given namespace)
           def get_all(starting_with = nil)
@@ -19,6 +22,11 @@ module RailsSettings
           def where(query = nil)
             vars = thing_scoped.where(query) if query
             vars
+          end
+
+          def object(var_name)
+            return nil unless rails_initialized?
+            thing_scoped.where(var: var_name.to_s).first
           end
 
           def thing_scoped
