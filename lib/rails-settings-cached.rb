@@ -1,3 +1,4 @@
+require 'rails-settings/adapters/abstract'
 require 'rails-settings/adapters/active_record' if defined? ActiveRecord
 require 'rails-settings/adapters/mongoid'       if defined? Mongoid
 
