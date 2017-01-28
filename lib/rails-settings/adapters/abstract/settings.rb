@@ -50,7 +50,7 @@ module RailsSettings
           def [](var_name)
             val = object(var_name)
             return val.value if val
-            return Default[var_name] if Default.enabled?
+            return Default[var_name] if ::RailsSettings::Default.enabled?
           end
 
           # set a setting value by [] notation
@@ -87,7 +87,7 @@ module RailsSettings
           end
 
           def source(filename)
-            Default.source(filename)
+            ::RailsSettings::Default.source(filename)
           end
 
           def rails_initialized?
@@ -97,9 +97,9 @@ module RailsSettings
           private
 
           def default_settings(starting_with = nil)
-            return {} unless Default.enabled?
-            return Default.instance if starting_with.nil?
-            Default.instance.select { |key, _| key.to_s.start_with?(starting_with) }
+            return {} unless ::RailsSettings::Default.enabled?
+            return ::RailsSettings::Default.instance if starting_with.nil?
+            ::RailsSettings::Default.instance.select { |key, _| key.to_s.start_with?(starting_with) }
           end
         end
 

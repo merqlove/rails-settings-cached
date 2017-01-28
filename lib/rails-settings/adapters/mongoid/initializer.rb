@@ -5,8 +5,9 @@ module RailsSettings
         extend ActiveSupport::Concern
 
         included do
-          # Settings.after_commit :rewrite_cache, on: %i(create update)
-          # Settings.after_commit :expire_cache, on: %i(destroy)
+          Settings.after_create :rewrite_cache
+          Settings.after_update :rewrite_cache
+          Settings.after_destroy :expire_cache
         end
       end
     end
