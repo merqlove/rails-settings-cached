@@ -4,6 +4,8 @@ module RailsSettings
       module Extend
         extend ActiveSupport::Concern
 
+        include ::RailsSettings::Adapters::Abstract::Extend
+
         included do
           scope :with_settings, lambda {
             joins("JOIN settings ON (settings.thing_id = #{table_name}.#{primary_key} AND
@@ -27,10 +29,6 @@ module RailsSettings
               .joins("LEFT JOIN settings ON (settings.thing_id = #{table_name}.#{primary_key} AND
                                            settings.thing_type = '#{base_class.name}') AND settings.var = '#{var}'")
           }
-        end
-
-        def settings
-          ScopedSettings.for_thing(self)
         end
       end
     end

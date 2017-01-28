@@ -1,12 +1,11 @@
 module RailsSettings
   module Adapters
-    module Mongoid
+    module Abstract
       module Extend
         extend ActiveSupport::Concern
 
-        include ::RailsSettings::Adapters::Abstract::Extend
-
-        included do
+        def settings
+          ScopedSettings.for_thing(self)
         end
       end
     end

@@ -6,7 +6,6 @@ module RailsSettings
       autoload :Adapter, 'rails-settings/adapters/mongoid/adapter'
       autoload :Extend, 'rails-settings/adapters/mongoid/extend'
       autoload :Initializer, 'rails-settings/adapters/mongoid/initializer'
-      autoload :ScopedSettings, 'rails-settings/adapters/mongoid/scoped_settings'
       autoload :Settings, 'rails-settings/adapters/mongoid/settings'
 
       included do

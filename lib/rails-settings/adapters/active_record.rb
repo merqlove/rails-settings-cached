@@ -6,7 +6,6 @@ module RailsSettings
       autoload :Adapter, 'rails-settings/adapters/active_record/adapter'
       autoload :Extend, 'rails-settings/adapters/active_record/extend'
       autoload :Initializer, 'rails-settings/adapters/active_record/initializer'
-      autoload :ScopedSettings, 'rails-settings/adapters/active_record/scoped_settings'
       autoload :Settings, 'rails-settings/adapters/active_record/settings'
 
       included do

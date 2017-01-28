@@ -1,6 +1,6 @@
 module RailsSettings
   module Adapters
-    module Mongoid
+    module Abstract
       class ScopedSettings < ::RailsSettings::Base
         def self.for_thing(object)
           @object = object
